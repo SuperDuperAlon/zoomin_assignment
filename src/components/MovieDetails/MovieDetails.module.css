@@ -1,0 +1,105 @@
+.movie_details {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+}
+
+.movie_details__image {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 22/9;
+}
+
+.movie_details__title {
+    font-size: 3.5rem;
+}
+
+.movie_details__tagline {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.movie_details__content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: start;
+    gap: 0.5rem;
+    padding: 3rem 5rem;
+    position: absolute;
+    height: 100%;
+    width: 40%;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.41237745098039214) 73%, rgba(255, 255, 255, 0) 100%);
+}
+
+.movie_details__button {
+    width: 100px;
+    background-color: crimson;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 45px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.movie_details__button:hover {
+    scale: 1.04;
+}
+
+@media (max-width: 1280px) {
+    .movie_details__content {
+        padding: 3rem 2.5rem;
+    }
+}
+
+@media (max-width: 950px) {
+    .movie_details__content {
+        flex-direction: column-reverse;
+    }
+
+    .movie_details__tagline {
+        display: none;
+    }
+
+    .movie_details__title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .movie_details__image {
+        aspect-ratio: 7/9;
+    }
+
+    .movie_details__title {
+        font-size: 3rem;
+    }
+
+    .movie_details {
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .movie_details__content {
+        gap: 0.25rem;
+        padding: 1rem;
+        width: calc(100% - 2rem);
+        justify-content: flex-start;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6138830532212884) 70%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .movie_details__button {
+        margin: 0;
+    }
+}
