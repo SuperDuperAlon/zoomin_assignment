@@ -9,6 +9,12 @@
     cursor: pointer;
 }
 
+.movie_item:hover {
+    transform: scale(2, 1.7);
+    transition: 1s;
+    z-index: 20;
+}
+
 .movie_item__content {
     position: absolute;
     bottom: 0;
