@@ -36,8 +36,14 @@
     background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.41237745098039214) 73%, rgba(255, 255, 255, 0) 100%);
 }
 
+.movie_details__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
 .movie_details__button {
-    width: 100px;
+    width: 140px;
     background-color: crimson;
     border: none;
     color: white;
@@ -52,7 +58,24 @@
     margin-top: 12px;
 }
 
-.movie_details__button:hover {
+.movie_details__trailer_button {
+    width: 140px;
+    background-color: white;
+    border: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 45px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.movie_details__button:hover,
+.movie_details__trailer_button:hover {
     scale: 1.04;
 }
 
@@ -99,7 +122,8 @@
         background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6138830532212884) 70%, rgba(255, 255, 255, 0) 100%);
     }
 
-    .movie_details__button {
+    .movie_details__button,
+    .movie_details__trailer_button {
         margin: 0;
     }
 }

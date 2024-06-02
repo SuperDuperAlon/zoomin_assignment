@@ -1,7 +1,15 @@
 import Image from '../Image/Image';
 import styles from './MovieDetails.module.css'
+import data from '../../data/data.js';
 
 function MovieDetails({ movie, onFavoriteToggle, favorites }) {
+
+  {/* Dynamic Link based on the episode ID */}
+  function handleLink(id) {
+    if (!movie) return
+    const movieToUse = data.find(movie => movie.episode_id === id)
+    return window.open(`${movieToUse.link}`, '_blank')
+  }
 
   if (!movie) return null;
   return (
@@ -17,9 +25,14 @@ function MovieDetails({ movie, onFavoriteToggle, favorites }) {
           <p><strong>Star Wars Episode{' ' + movie.episode_id}</strong> </p>
         </div>
         <p className='display-none'>{movie.opening_crawl}</p>
-        <button className={styles.movie_details__button} onClick={() => onFavoriteToggle(movie)}>
-          {favorites.some(fav => fav.episode_id === movie.episode_id) ? "Liked" : "Like"}
-        </button>
+        <div className={styles.movie_details__buttons}>
+          <button className={styles.movie_details__button} onClick={() => onFavoriteToggle(movie)}>
+            {favorites.some(fav => fav.episode_id === movie.episode_id) ? "Liked" : "Like"}
+          </button>
+          <button className={styles.movie_details__trailer_button} onClick={() => handleLink(movie.episode_id)}>
+            Watch Trailer
+          </button>
+        </div>
       </div>
     </div >
   );
