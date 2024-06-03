@@ -79,6 +79,14 @@
     }
 }
 
+@media (max-width: 950px) {
+    .movie_item:hover {
+        transform: none;
+        transition: none;
+        z-index: 1;
+    }
+}
+
 @media (max-width: 500px) {
     .movie_item {
         width: 180px;
