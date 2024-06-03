@@ -7,6 +7,7 @@ function MovieItem({ movie, onMovieSelect }) {
   const [isOnHover, setIsOnHover] = useState(false);
   const [isCloserToLeft, setIsCloserToLeft] = useState(false);
   const divRef = useRef(null);
+  const mobileWidth = window.innerWidth > 950 ? true : false
 
   {/* When we hover over the item we want to show the trailer and to calculate it's position in the window so it won't overflow */ }
 
@@ -41,20 +42,16 @@ function MovieItem({ movie, onMovieSelect }) {
   return (
     <div ref={divRef} className={styles.movie_item} onClick={() => onMovieSelect(movie)}
       onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
-      key={movie.episode_id} style={{ transformOrigin: isOnHover && isCloserToLeft ? 'left' : 'right' }}>
+      key={movie.episode_id} style={{ transformOrigin: isOnHover && mobileWidth && isCloserToLeft ? 'left' : 'right' }}>
       {isOnHover ?
         <>
           <iframe autoPlay
             frameBorder="0" src={`${getTrailer(movie.episode_id)}?autoplay=1&mute=1&origin=https://OurWebsiteDomain`}
             allowFullScreen title={`${movie.title}`} height="278" data-ytbridge="vidSurrogate2" >
-
           </iframe>
           <button className={styles.movie_item__trailer_button} onClick={() => { onMovieSelect(movie); handleLink(movie.episode_id) }}>
             Watch
           </button>
-
-
-
         </>
         :
         <>
