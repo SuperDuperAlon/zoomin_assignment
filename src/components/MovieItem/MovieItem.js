@@ -43,7 +43,7 @@ function MovieItem({ movie, onMovieSelect }) {
     <div ref={divRef} className={styles.movie_item} onClick={() => onMovieSelect(movie)}
       onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
       key={movie.episode_id} style={{ transformOrigin: isOnHover && mobileWidth && isCloserToLeft ? 'left' : 'right' }}>
-      {isOnHover ?
+      {isOnHover && mobileWidth ?
         <>
           <iframe autoPlay
             frameBorder="0" src={`${getTrailer(movie.episode_id)}?autoplay=1&mute=1&origin=https://OurWebsiteDomain`}
