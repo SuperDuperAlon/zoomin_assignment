@@ -10,7 +10,7 @@
 }
 
 .movie_item:hover {
-    transform: scale(2, 1.7);
+    transform: scale(1.5);
     transition: 1s;
     z-index: 20;
 }
@@ -47,6 +47,30 @@
     border-radius: 45px;
     font-size: 0.75rem;
     font-weight: 700;
+}
+
+.movie_item__trailer_button {
+    position: absolute;
+    left: 20px;
+    z-index: 23;
+    bottom: 90px;
+    width: 70px;
+    background-color: white;
+    border: none;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem;
+    border-radius: 45px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.movie_item__trailer_button:hover {
+    scale: 1.03;
+    cursor: pointer;
 }
 
 @media (max-width: 1280px) {

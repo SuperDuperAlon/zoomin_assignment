@@ -4,11 +4,11 @@ import styles from './MovieItem.module.css'
 import data from '../../data/data.js';
 
 function MovieItem({ movie, onMovieSelect }) {
-  const [isOnHover, setIsOnHover] = useState(false); 
+  const [isOnHover, setIsOnHover] = useState(false);
   const [isCloserToLeft, setIsCloserToLeft] = useState(false);
   const divRef = useRef(null);
 
-{/* When we hover over the item we want to show the trailer and to calculate it's position in the window so it won't overflow */}
+  {/* When we hover over the item we want to show the trailer and to calculate it's position in the window so it won't overflow */ }
 
   function handleMouseEnter() {
     if (isOnHover) return // We only want to do this once
@@ -24,7 +24,7 @@ function MovieItem({ movie, onMovieSelect }) {
     setIsOnHover(false)
   }
 
-  {/* Get the link to the trailer based on the episode ID */}
+  {/* Get the link to the trailer based on the episode ID */ }
 
   function getTrailer(id) {
     if (!movie) return
@@ -37,9 +37,19 @@ function MovieItem({ movie, onMovieSelect }) {
       onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
       key={movie.episode_id} style={{ transformOrigin: isOnHover && isCloserToLeft ? 'left' : 'right' }}>
       {isOnHover ?
-        <iframe autoPlay
-          frameBorder="0" src={`${getTrailer(movie.episode_id)}?autoplay=1&mute=1&origin=https://OurWebsiteDomain`}
-          allowFullScreen title={`${movie.title}`} height="278" data-ytbridge="vidSurrogate2" ></iframe>
+        <>
+          <iframe autoPlay
+            frameBorder="0" src={`${getTrailer(movie.episode_id)}?autoplay=1&mute=1&origin=https://OurWebsiteDomain`}
+            allowFullScreen title={`${movie.title}`} height="278" data-ytbridge="vidSurrogate2" >
+
+          </iframe>
+          <button className={styles.movie_item__trailer_button} onClick={() => onMovieSelect(movie)}>
+            Watch
+          </button>
+
+
+
+        </>
         :
         <>
           <Image movie={movie} className={styles.movie_item} />
