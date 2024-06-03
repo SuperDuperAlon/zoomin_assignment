@@ -32,6 +32,12 @@ function MovieItem({ movie, onMovieSelect }) {
     return movieToUse.linkToEmbed
   }
 
+  function handleLink(id) {
+    if (!movie) return
+    const movieToUse = data.find(movie => movie.episode_id === id)
+    return window.open(`${movieToUse.link}`, '_blank')
+  }
+
   return (
     <div ref={divRef} className={styles.movie_item} onClick={() => onMovieSelect(movie)}
       onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
@@ -43,7 +49,7 @@ function MovieItem({ movie, onMovieSelect }) {
             allowFullScreen title={`${movie.title}`} height="278" data-ytbridge="vidSurrogate2" >
 
           </iframe>
-          <button className={styles.movie_item__trailer_button} onClick={() => onMovieSelect(movie)}>
+          <button className={styles.movie_item__trailer_button} onClick={() => { onMovieSelect(movie); handleLink(movie.episode_id) }}>
             Watch
           </button>
 
